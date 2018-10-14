@@ -17,3 +17,9 @@ MINIO_OPTS="--address :443"
 - Install Certbot (`https://certbot.eff.org/`)
 - Get certificate: `certbot certonly --standalone -d {domain} -m {email} --agree-tos --staple-ocsp`
 - Copy the certificate to Minio's certs directory: `sudo cp /etc/letsencrypt/live/{domain}/fullchain.pem /home/minio-user/.minio/certs/public.crt && sudo cp /etc/letsencrypt/live/{domain}/privkey.pem /home/minio-user/.minio/certs/private.key`
+- Start Minio `sudo systemctl start minio`
+
+Configuration (and access + secret key) can be found in `/home/minio-user/data/.minio.sys/config/config.json`
+
+## Missing
+I have to make steps to renew the certificate by itself. Currenly easier in root since sudoing in a script isn't easy.
